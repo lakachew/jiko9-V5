@@ -17,6 +17,6 @@ class VerifyCsrfToken extends BaseVerifier
         'api/v4/authenticate/user/works',
         'api/v4/authenticate/user/worklog',
         'api/v4/authenticate/user/worklog/start',
-        'api/v4/authenticate/user/worklog/stop'
+        'api/v4/authenticate/user/worklog/stop',
     ];
 }
