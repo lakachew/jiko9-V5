@@ -25,15 +25,23 @@ class WorkController extends Controller
         $this->middleware('auth');
     }
 
-
-    public function getAssignForm()
+    /**
+     * @return mixed
+     */
+    public function getById($idValue)
     {
+        $header = "Selected Work";
+        $work = Work::find($idValue);
+        //$employees = User::where('id', $idValue)->get();
+        //dd($employee);
 
+
+        MapController::generateWorkMap($work);
+
+        return view('work/work')
+            ->with('work', $work)
+            ->with('header', $header);
     }
-
-
-
-
 
     /**
      * Show the application registration form.
@@ -62,7 +70,7 @@ class WorkController extends Controller
 
         MapController::generateWorksMap($works);
 
-        return view('work')
+        return view('work/works')
             ->with('works', $works)
             ->with('header', $header);
     }
@@ -74,7 +82,7 @@ class WorkController extends Controller
 
         MapController::generateWorksMap($works);
 
-        return view('work')
+        return view('work/works')
             ->with('works', $works)
             ->with('header', $header);
     }
@@ -86,7 +94,7 @@ class WorkController extends Controller
 
         MapController::generateWorksMap($works);
 
-        return view('work')
+        return view('work/works')
             ->with('works', $works)
             ->with('header', $header);
     }

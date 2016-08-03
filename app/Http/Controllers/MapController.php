@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Work;
 use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 use Illuminate\Http\Request;
 use \GoogleMaps\GoogleMaps as GoogleMaps;
@@ -55,6 +56,32 @@ class MapController extends Controller
         return $collection->all();
     }
 
+    public static function generateWorkMap($work)
+    {
+        $work = Work::find($work['id']);
+
+        if(isset($work->longitude) && isset($work->latitude)) {
+            Mapper::map($work->longitude ,$work->latitude,
+                ['draggable' => false,
+                    'eventMouseDown' => 'console.log("mouse down");',
+                    'zoom' => 12,
+                    'cluster' => false,
+                    'markers' =>
+                        ['title' => $work['address'],
+                            'scale' => 1000,
+                            'animation' => 'DROP']]);
+        }
+        else
+        {
+            Mapper::map(63.0925796,21.6516582,
+                ['draggable' => false,
+                    'eventMouseDown' => 'console.log("mouse down");',
+                    'zoom' => 12,
+                    'cluster' => false]);
+        }
+
+    }
+
     public static function generateWorksMap($works)
     {
         Mapper::map(63.0925796,21.6516582,
@@ -69,9 +96,11 @@ class MapController extends Controller
 
         foreach($works as $work)
         {
+            $work = Work::find($work['id']);
+            $workCustomer = $work->getCustomerName();
             if(isset($work['longitude']))
             {
-                Mapper::informationWindow($work['longitude'],$work['latitude'], '<a href="http://jiko9.app/">Lakachew Home</a>',
+                Mapper::informationWindow($work['longitude'],$work['latitude'], $workCustomer,
                     ['clusters' => ['size' => 10, 'center' => true, 'zoom' => 15],
                         'markers' => ['symbol' => 'circle',
                             'scale' => 1000,

@@ -76,9 +76,9 @@
 
                                 <div class="col-md-6">
                                     <select class="form-control" name="privilege" id="privilege">
-                                        <option value="office_worker">Office worker</option>
-                                        <option value="field_worker">Field worker</option>
-                                        <option value="admin">Admin</option>
+                                        <option value="Office Worker">Office worker</option>
+                                        <option value="Field Worker">Field worker</option>
+                                        <option value="Admin">Admin</option>
                                     </select>
                                 </div>
                             </div>

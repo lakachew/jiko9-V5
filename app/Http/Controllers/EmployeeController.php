@@ -8,6 +8,7 @@ use App\UserWork;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 class EmployeeController extends Controller
 {
@@ -23,6 +24,37 @@ class EmployeeController extends Controller
     }
 
 
+    public function contact()
+    {
+        $header = "Contacts";
+        $employees = User::where('privilege', 'admin')->get();
+
+        $size = $employees->count();
+        $half = floor($size/2);
+
+        return view('contact')
+            ->with('employees', $employees)
+            ->with('header', $header)
+            ->with('size', $half);
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getById($idValue)
+    {
+        $header = "Selected Employee";
+        $employee = User::find($idValue);
+        //$employees = User::where('id', $idValue)->get();
+        //dd($employee);
+
+
+
+        return view('employee/employee')
+            ->with('employee', $employee)
+            ->with('header', $header);
+    }
+
     /**
      * @return mixed
      */
@@ -31,17 +63,21 @@ class EmployeeController extends Controller
         $header = "All Employees";
         $employees = User::all();
 
-        return view('employee')
+        $size = $employees->count();
+
+        $half = $size/2;
+
+
+        return view('employee/employees')
             ->with('employees', $employees)
-            ->with('header', $header);
+            ->with('header', $header)
+            ->with('size', $half);
     }
 
     public function getAssigned()
     {
         $header = "Assigned Employees";
         $users = User::all();
-
-
         $assignedEmployees = collect();
 
         foreach ($users as $user)
@@ -54,9 +90,15 @@ class EmployeeController extends Controller
 
         $assignedEmployees = $assignedEmployees->unique();
 
-        return view('employee')
+        // counting the assigned employees and assigning
+        // the half value to be sent for the view
+        $size = $assignedEmployees->count();
+        $half = $size/2;
+
+        return view('employee/employees')
             ->with('employees',$assignedEmployees)
-            ->with('header', $header);
+            ->with('header', $header)
+            ->with('size', $half);
     }
 
     public function getNotAssigned()
@@ -78,9 +120,13 @@ class EmployeeController extends Controller
 
         $notAssignedEmployees = $users->diff($assignedEmployees);
 
-        return view('employee')
+        $size = $notAssignedEmployees->count();
+        $half = $size/2;
+
+        return view('employee/employees')
             ->with('employees',$notAssignedEmployees)
-            ->with('header', $header);
+            ->with('header', $header)
+            ->with('size', $half);
     }
 
     public function getActive()
@@ -107,9 +153,13 @@ class EmployeeController extends Controller
 
         $activeEmployees = $activeEmployees->unique();
 
-        return view('employee')
+        $size = $activeEmployees->count();
+        $half = $size/2;
+
+        return view('employee/employees')
             ->with('employees',$activeEmployees)
-            ->with('header', $header);
+            ->with('header', $header)
+            ->with('size', $half);
     }
 
     public function getInactive()
@@ -145,9 +195,13 @@ class EmployeeController extends Controller
 
         $inActiveEmployees = $allInActiveEmployees->diff($notAssignedEmployees);
 
-        return view('employee')
+        $size = $inActiveEmployees->count();
+        $half = $size/2;
+
+        return view('employee/employees')
             ->with('employees',$inActiveEmployees)
-            ->with('header', $header);
+            ->with('header', $header)
+            ->with('size', $half);
     }
 
 }

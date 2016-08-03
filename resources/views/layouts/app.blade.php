@@ -9,8 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
     <title>Jiko Oy</title>
 
     <!-- Fonts -->
@@ -69,9 +67,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/work/form') }}"></i>New Work</a></li>
-                            <li><a href="{{ url('/customer/form') }}"></i>New Customer</a></li>
-                            <li><a href="{{ url('/register') }}"></i>New Employee</a></li>
+                            <li><a href="{{ url('/work/form') }}">New Work</a></li>
+                            <li><a href="{{ url('/customer/form') }}">New Customer</a></li>
+                            <li><a href="{{ url('/register') }}">New Employee</a></li>
                         </ul>
                     </li>
                     <!-- WORK DROPDOWN -->
@@ -81,11 +79,11 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('work/all') }}"></i>All</a></li>
-                            <li><a href="{{ url('work/unfinished') }}"></i>Unfinished</a></li>
-                            <li><a href="{{ url('work/finished') }}"></i>Finished</a></li>
-                            <li><a href="{{ url('work/form') }}"></i>Add new Work</a></li>
-                            <li><a href="{{ url('work/assign') }}"></i>Assign Work</a></li>
+                            <li><a href="{{ url('work/all') }}">All</a></li>
+                            <li><a href="{{ url('work/unfinished') }}">Unfinished</a></li>
+                            <li><a href="{{ url('work/finished') }}">Finished</a></li>
+                            <li><a href="{{ url('work/form') }}">Add new Work</a></li>
+                            <li><a href="{{ url('work/assign') }}">Assign Work</a></li>
                         </ul>
                     </li>
 
@@ -96,12 +94,12 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('employee/all') }}"></i>All</a></li>
-                            <li><a href="{{ url('employee/active') }}"></i>Active</a></li>
-                            <li><a href="{{ url('employee/inactive') }}"></i>Inactive</a></li>
-                            <li><a href="{{ url('employee/assigned') }}"></i>Assigned</a></li>
-                            <li><a href="{{ url('employee/not_assigned') }}"></i>Not Assigned</a></li>
-                            <li><a href="{{ url('/register') }}"></i>Add new employee</a></li>
+                            <li><a href="{{ url('employee/all') }}">All</a></li>
+                            <li><a href="{{ url('employee/active') }}">Active</a></li>
+                            <li><a href="{{ url('employee/inactive') }}">Inactive</a></li>
+                            <li><a href="{{ url('employee/assigned') }}">Assigned</a></li>
+                            <li><a href="{{ url('employee/not_assigned') }}">Not Assigned</a></li>
+                            <li><a href="{{ url('/register') }}">Add new employee</a></li>
                         </ul>
                     </li>
 
@@ -112,8 +110,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('customer/all') }}"></i>All</a></li>
-                            <li><a href="{{ url('customer/form') }}"></i>Add new customer</a></li>
+                            <li><a href="{{ url('customer/all') }}">All</a></li>
+                            <li><a href="{{ url('customer/form') }}">Add new customer</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -10,25 +9,26 @@
 
                     <div class="panel-body">
 
-                        <div style="height: 500px; width: 100%; border:0;">{!! Mapper::render () !!}</div>
-
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Customer</th>
-                                <th>Address</th>
-                                <th>Description</th>
-                                <th>Date</th>
+                                <th>Company</th>
+                                <th>Contact Person</th>
+                                <th>Phone</th>
+                                <th>email</th>
+                                <th>Started Date</th>
+
                             </tr>
                             </thead>
                             <tbody>
 
-                            <@foreach($works as $work)
+                            @foreach($customers as $customer)
                                 <tr>
-                                    <td>{{ $work->getCustomerName() }}</td>
-                                    <td>{{ $work->address }}</td>
-                                    <td>{{ $work->description }}</td>
-                                    <td>{{ $work->getDate() }}</td>
+                                    <td>{{ $customer->company_name }} </td>
+                                    <td>{{ $customer->contact_name }} </td>
+                                    <td>{{ $customer->phone }}</td>
+                                    <td>{{ $customer->email }}</td>
+                                    <td>{{ $customer->getDate() }}</td>
                                 </tr>
                             @endforeach
 

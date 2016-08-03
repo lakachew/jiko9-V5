@@ -171,7 +171,12 @@ return [
         /*
          * CORS service provider
          */
-        Barryvdh\Cors\ServiceProvider::class
+        Barryvdh\Cors\ServiceProvider::class,
+
+        /*
+         * JWT-AUTH service provider
+         */
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
 
     ],
@@ -220,7 +225,15 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
-        'Mapper' => 'Cornford\Googlmapper\Facades\MapperFacade',
+
+        /*******************    Google Maps API aliases    ****************************/
+
+        'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+
+        /*******************    JWT API  aliases   ****************************/
+
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 

@@ -41,7 +41,7 @@ class CustomerController extends Controller
         $customers = Customer::all();
 
 
-        return view('customer.list')
+        return view('customer.customers')
             ->with('customers', $customers)
             ->with('header', $header);
     }
