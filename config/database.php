@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'ip-172-31-10-180.ec2.internal'),
+            'host' => env('DB_HOST', 'jiko9-v5'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'jiko9'),
+            'database' => env('DB_DATABASE', 'jiko9db'),
             'username' => env('DB_USERNAME', 'lakachew'),
-            'password' => env('DB_PASSWORD', 'Esete123'),
+            'password' => env('DB_PASSWORD', '1w7ch81PBadY2juj'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
