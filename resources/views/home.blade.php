@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
 
-                    <div style="height: 500px; width: 100%; border:0;">You are logged in</div>
+                    <div style="height: 500px; width: 100%; border:0;">You are logged in!!</div>
 
 
                 </div>
